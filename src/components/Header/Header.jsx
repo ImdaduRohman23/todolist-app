@@ -1,5 +1,6 @@
 import React from 'react';
-import './header.css'
+import './header.css';
+import list from '../../assets/list.gif';
 
 const Header = () => {
     return (
@@ -12,6 +13,10 @@ const Header = () => {
                         <button className='form__button' type='submit'>+</button>
                 </form>
                 <h6 className='form__buttom'>Become focused, organized, and calm. </h6>
+            </div>
+            <div className="header__todos">
+                <img className='header__todos-img'  src={list} alt="list" />
+                <h2>todo's</h2>
             </div>
         </div>
     )

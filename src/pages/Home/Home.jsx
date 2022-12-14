@@ -1,11 +1,12 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
+import Todos from '../../components/Todos/Todos'
 
 const Home = () => {
     return (
         <div>
             <Header />
-            <h2>List</h2>
+            <Todos />
         </div>
     )
 }

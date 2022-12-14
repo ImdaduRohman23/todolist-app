@@ -1,0 +1,54 @@
+.todos {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(../../assets/floor.png);
+    color: white;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.todos__container {
+    box-shadow: 0px 0px 5px black;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+
+}
+
+.todos__content {
+    border-bottom: 1px solid black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todos__logo {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: auto;
+    color: white;
+    background: rgba(0, 0, 0, 1);
+    padding: 15px;
+    padding-top: 5px;
+    font-family: 'Roboto', sans-serif;
+    width: 120px;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .todos__container {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .todos__container {
+        width: 95%;
+    }
+}
