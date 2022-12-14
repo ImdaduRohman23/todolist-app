@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Rubik+Gemstones&display=swap');
+
+.header {
+    background: url(../../assets/header4.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100%;
+}
+
+.header__title {
+    color: whitesmoke;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    padding: 10px;
+    padding-right: 15px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    text-shadow: 2px 2px 4px #b38867;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: left;
+    font-family: 'Rubik Gemstones', cursive;
+    font-size: 2.5rem;
+    /* border: 2px solid white; */
+    /* border-left: 0; */
+}
+
+.header__content {
+    background-color: rgba(0, 0, 0, 40%);
+    width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px black;
+    text-align: center;
+    color: white;
+}
+
+.header__content-moto {
+    font-size: 2.3rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header__content-form {
+    /* margin-left: auto;
+    margin-right: auto;
+    width: 400px; */
+    display: inline-block;
+    padding: 10px;
+    background-color: black;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 0 8px white;
+}
+
+.form__input {
+    width: 250px;
+    outline: none;
+    border: none;
+    color: gray;
+    background-color: black;
+    font-size: 1rem;
+    height: 25px;
+}
+
+.form__button {
+    height: 25px;
+    width: 25px;
+    font-size: large;
+}
+
+.form__buttom {
+    margin-top: 7px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+} 
+
+@media only screen and (max-width: 600px) {
+    .header__content {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .header__content {
+        width: 95%;
+    }
+
+    .form__input {
+        width: 200px;
+    }
+}
