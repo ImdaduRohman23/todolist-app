@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './todos.css';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
 
-const Todos = () => {
-    const todos = useSelector(todo => todo.todosReducer);
-    
+const Todos = ({todos, setTodos}) => {
+    const handleDelete = (id) => {
+        setTodos(todos.filter(todo => todo.id != id))
+    }
+
     return (
         <div className="todos">
             <div className="todos__container">
@@ -19,7 +20,7 @@ const Todos = () => {
                                     id={'checkbox'}
                                     label={todo.title}
                                 />
-                                <Button variant='danger'>
+                                <Button onClick={() => handleDelete(todo.id)} variant='danger'>
                                     Delete
                                 </Button>
                             </div>
