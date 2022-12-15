@@ -1,12 +1,37 @@
 import React, { useState } from 'react';
 import './header.css';
 import list from '../../assets/list.gif';
+import {v4 as uuidv4} from 'uuid';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Header = () => {
     const [input, setInput] = useState('');
+    // const [todos, setTodos] = useState([]);
+    const todos = useSelector(todo => todo.todosReducer);
+    console.log('todos', todos)
+    const dispatch = useDispatch();
 
-    const handleSubmit = () => {
-        console.log(input)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // setTodos(
+        //     [...todos, {
+        //         id: uuidv4(),
+        //         title: input,
+        //         completed: false
+        //     }]
+        // );
+        dispatch({
+            type: 'ADD',
+            payload: [
+                ...todos, {
+                    id: uuidv4(),
+                    title: input,
+                    completed: false
+                }
+            ]
+
+        })
+        setInput('');
     };
 
     return (
