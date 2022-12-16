@@ -1,5 +1,6 @@
 import React from 'react';
 import './todos.css';
+import list from '../../assets/list.gif'
 
 const Todos = ({todos, setTodos, setEdit, setEditInput}) => {
     const handleDelete = (id) => {
@@ -22,6 +23,9 @@ const Todos = ({todos, setTodos, setEdit, setEditInput}) => {
 
     return (
         <div className="todos">
+            <div className="todos__img">
+                <img className='todos__img-item'  src={list} alt="list" />
+            </div>
             <div className="todos__container">
                 {
                     todos.map(todo => (

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './header.css';
-import list from '../../assets/list.gif';
 import {v4 as uuidv4} from 'uuid';
 
 const Header = ({todos, setTodos, edit, setEdit, editInput, setEditInput}) => {
@@ -48,8 +47,7 @@ const Header = ({todos, setTodos, edit, setEdit, editInput, setEditInput}) => {
                 <h6 className='form__buttom'>Become focused, organized, and calm. </h6>
             </div>
             <div className="header__todos">
-                <img className='header__todos-img'  src={list} alt="list" />
-                <h2>todo's</h2>
+                <h2 className='header__todos-text'>todo's</h2>
             </div>
         </div>
     )
