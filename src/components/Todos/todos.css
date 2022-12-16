@@ -93,13 +93,25 @@
 }
 
 .todos__empty {
-    color: rgb(128, 0, 0);
+    color: rgb(218, 19, 19);
     text-align: center;
+    text-decoration: underline;
 }
 
 @media only screen and (max-width: 600px) {
     .todos__container {
         width: 400px;
+    }
+
+    .button-complete,
+    .button-delete,
+    .button-edit {
+    font-size: 2rem;
+    margin-right: 10px;    
+    }
+
+    .button-delete {
+        margin-right: 0;
     }
 }
 

@@ -48,7 +48,7 @@ const Todos = ({todos, setTodos, setEdit, setEditInput}) => {
                 }
 
                 {
-                    !todos.length && <h5 className='todos__empty'>You don't have todo</h5>
+                    !todos.length && <h4 className='todos__empty'>You don't have todo</h4>
                 }
             </div>
         </div>

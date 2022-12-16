@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Todos from '../../components/Todos/Todos';
 
@@ -16,6 +17,7 @@ const Home = () => {
         <div>
             <Header todos={todos} setTodos={setTodos} edit={edit} setEdit={setEdit} editInput={editInput} setEditInput={setEditInput}/>
             <Todos todos={todos} setTodos={setTodos} edit={edit} setEdit={setEdit} editInput={editInput} setEditInput={setEditInput}/>
+            <Footer />
         </div>
     )
 }
