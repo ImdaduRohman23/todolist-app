@@ -1,30 +1,49 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './todos.css';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
+import del from '../../assets/delete.gif'
 
 const Todos = ({todos, setTodos}) => {
     const handleDelete = (id) => {
-        setTodos(todos.filter(todo => todo.id != id))
+        setTodos(todos.filter(todo => todo.id !== id))
+    };
+
+    const handleCompleted = (id) => {
+        setTodos(todos.map(todo => {
+            if(todo.id === id) {
+                return {...todo, completed: !todo.completed}
+            } else return todo
+        }));
+    };
+
+    const hanldeEdit = () => {
+        window.scrollTo(0,0);
     }
+
+    console.log(todos)
 
     return (
         <div className="todos">
             <div className="todos__container">
                 {
                     todos.map(todo => (
-                        <Form>
-                            <div key={'checkbox'} className="mb-3 todos__content">
-                                <Form.Check 
-                                    type={'checkbox'}
-                                    id={'checkbox'}
-                                    label={todo.title}
-                                />
-                                <Button onClick={() => handleDelete(todo.id)} variant='danger'>
-                                    Delete
-                                </Button>
+                        <div className="todos__content" key={todo.id}>
+                            <p className={`todos__content-title ${todo.completed? `completed`:``}`}>
+                                {todo.title}
+                            </p>
+                            <div className="todos__content-button">
+                                <button className="button-complete task-button" onClick={() => handleCompleted(todo.id)}>
+                                    <i className="fa fa-check-circle"></i>
+                                </button>
+                                <button className="button-edit task-button" onClick={() => hanldeEdit(todo.id)}>
+                                    <i className="fa fa-edit"></i>
+                                </button>
+                                <button className="button-delete task-button" onClick={() => handleDelete(todo.id)}>
+                                    <i className="fa fa-trash"></i>
+                                </button>
                             </div>
-                        </Form>
+                        </div>
                     ))
                 }
             </div>

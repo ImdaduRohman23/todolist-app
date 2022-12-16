@@ -1,7 +1,7 @@
 .todos {
     position: relative;
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(../../assets/floor.png);
-    color: white;
+    /* color: white; */
     min-height: 300px;
     display: flex;
     flex-direction: column;
@@ -19,11 +19,20 @@
 }
 
 .todos__content {
-    border-bottom: 1px solid black;
-    padding: 10px;
+    border-bottom: 2px solid black;
+    padding: 5px;
+    padding-left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 20px;
+}
+
+.todos__content-title {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
 }
 
 .todos__logo {
@@ -40,6 +49,47 @@
     text-align: center;
 }
 
+.completed {
+    text-decoration-style: solid;
+    text-decoration-line: line-through;
+    opacity: 0.6; 
+}
+
+.todos__content-button {
+    display: flex;
+    margin-left: 20px;
+}
+
+.button-complete,
+.button-delete,
+.button-edit {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 2.2rem;
+    border-radius: 50%;
+    margin-right: 20px;    
+}
+
+.button-complete {
+    color: blue;
+}
+
+.button-edit {
+    color: rgb(255, 255, 0);
+}
+
+.button-delete {
+    color: rgb(255, 0, 0);
+    margin-right: 0;
+}
+
+.button-complete:hover,
+.button-delete:hover,
+.button-edit:hover {
+    opacity: 0.4;
+}
 
 @media only screen and (max-width: 600px) {
     .todos__container {
