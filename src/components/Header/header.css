@@ -72,6 +72,10 @@
     font-weight: bold;
 }
 
+.form-edit {
+    background-color: yellow;
+}
+
 .form__buttom {
     margin-top: 7px;
     font-size: 1rem;

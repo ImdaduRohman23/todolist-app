@@ -1,10 +1,7 @@
 import React from 'react';
 import './todos.css';
-import Form from 'react-bootstrap/Form';
-import { Button } from 'react-bootstrap';
-import del from '../../assets/delete.gif'
 
-const Todos = ({todos, setTodos}) => {
+const Todos = ({todos, setTodos, setEdit, setEditInput}) => {
     const handleDelete = (id) => {
         setTodos(todos.filter(todo => todo.id !== id))
     };
@@ -17,11 +14,11 @@ const Todos = ({todos, setTodos}) => {
         }));
     };
 
-    const hanldeEdit = () => {
+    const hanldeEdit = (id) => {
         window.scrollTo(0,0);
+        const findEdit = todos.find(todo => todo.id === id);
+        setEdit(findEdit);
     }
-
-    console.log(todos)
 
     return (
         <div className="todos">
@@ -36,7 +33,10 @@ const Todos = ({todos, setTodos}) => {
                                 <button className="button-complete task-button" onClick={() => handleCompleted(todo.id)}>
                                     <i className="fa fa-check-circle"></i>
                                 </button>
-                                <button className="button-edit task-button" onClick={() => hanldeEdit(todo.id)}>
+                                <button className="button-edit task-button" onClick={() => {
+                                    hanldeEdit(todo.id);
+                                    setEditInput(true);
+                                    }}>
                                     <i className="fa fa-edit"></i>
                                 </button>
                                 <button className="button-delete task-button" onClick={() => handleDelete(todo.id)}>
@@ -45,6 +45,10 @@ const Todos = ({todos, setTodos}) => {
                             </div>
                         </div>
                     ))
+                }
+
+                {
+                    !todos.length && <h5 className='todos__empty'>You don't have todo</h5>
                 }
             </div>
         </div>

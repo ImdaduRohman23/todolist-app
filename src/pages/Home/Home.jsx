@@ -5,6 +5,8 @@ import Todos from '../../components/Todos/Todos';
 const Home = () => {
     const initialState = JSON.parse(localStorage.getItem("todos")) || [];
     const [todos, setTodos] = useState(initialState);
+    const [edit, setEdit] = useState(null);
+    const [editInput, setEditInput] = useState(false);
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos))
@@ -12,8 +14,8 @@ const Home = () => {
 
     return (
         <div>
-            <Header todos={todos} setTodos={setTodos} />
-            <Todos todos={todos} setTodos={setTodos}/>
+            <Header todos={todos} setTodos={setTodos} edit={edit} setEdit={setEdit} editInput={editInput} setEditInput={setEditInput}/>
+            <Todos todos={todos} setTodos={setTodos} edit={edit} setEdit={setEdit} editInput={editInput} setEditInput={setEditInput}/>
         </div>
     )
 }
