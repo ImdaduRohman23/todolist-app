@@ -46,9 +46,6 @@ const Header = ({todos, setTodos, edit, setEdit, editInput, setEditInput}) => {
                 </form>
                 <h6 className='form__buttom'>Become focused, organized, and calm. </h6>
             </div>
-            <div className="header__todos">
-                <h2 className='header__todos-text'>todo's</h2>
-            </div>
         </div>
     )
 }

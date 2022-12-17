@@ -24,6 +24,7 @@ const Todos = ({todos, setTodos, setEdit, setEditInput}) => {
     return (
         <div className="todos">
             <div className="todos__img">
+                <h2 className='header__todos-text'>todo's</h2>
                 <img className='todos__img-item'  src={list} alt="list" />
             </div>
             <div className="todos__container">
