@@ -1,7 +1,6 @@
 .todos {
     position: relative;
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url(../../assets/floor.png);
-    /* color: white; */
     min-height: 150px;
     display: flex;
     flex-direction: column;

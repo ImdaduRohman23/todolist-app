@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './header.css';
 import {v4 as uuidv4} from 'uuid';
+import swal from 'sweetalert';
 
 const Header = ({todos, setTodos, edit, setEdit, editInput, setEditInput}) => {
     const [input, setInput] = useState('');
@@ -23,8 +24,10 @@ const Header = ({todos, setTodos, edit, setEdit, editInput, setEditInput}) => {
                 }]
             );
             setInput('');
+            swal("Success!", "Todo added", "success");
         } else {
             updateTodo(input, edit.id, edit.completed)
+            swal("Success!", "Todo edited", "success");
         };
         setEditInput(false);
     };

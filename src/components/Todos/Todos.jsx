@@ -1,10 +1,28 @@
 import React from 'react';
 import './todos.css';
-import list from '../../assets/list.gif'
+import list from '../../assets/list.gif';
+import swal from 'sweetalert';
 
 const Todos = ({todos, setTodos, setEdit, setEditInput}) => {
+
     const handleDelete = (id) => {
-        setTodos(todos.filter(todo => todo.id !== id))
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this todo!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    setTodos(todos.filter(todo => todo.id !== id))
+                    swal("Poof! Your todo has been deleted", {
+                        icon: "success",
+                });
+                } else {
+                    swal("Your todo is safe!");
+                }
+            });
     };
 
     const handleCompleted = (id) => {
