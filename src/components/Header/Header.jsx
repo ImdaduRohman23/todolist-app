@@ -15,21 +15,25 @@ const Header = ({todos, setTodos, edit, setEdit, editInput, setEditInput}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(!edit) {
-            setTodos(
-                [...todos, {
-                    id: uuidv4(),
-                    title: input,
-                    completed: false
-                }]
-            );
-            setInput('');
-            swal("Success!", "Todo added", "success");
+        if(input.length === 0) {
+            swal("The todo is empty", "You have to write the todo!");
         } else {
-            updateTodo(input, edit.id, edit.completed)
-            swal("Success!", "Todo edited", "success");
+            if(!edit) {
+                setTodos(
+                    [...todos, {
+                        id: uuidv4(),
+                        title: input,
+                        completed: false
+                    }]
+                );
+                setInput('');
+                swal("Success!", "Todo added", "success");
+            } else {
+                updateTodo(input, edit.id, edit.completed)
+                swal("Success!", "Todo edited", "success");
+            };
+            setEditInput(false);
         };
-        setEditInput(false);
     };
 
     useEffect(() => {
