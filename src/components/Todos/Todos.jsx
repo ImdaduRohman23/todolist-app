@@ -2,6 +2,7 @@ import React from 'react';
 import './todos.css';
 import list from '../../assets/list.gif';
 import swal from 'sweetalert';
+import { Button } from 'react-bootstrap';
 
 const Todos = ({todos, setTodos, setEdit, setEditInput}) => {
 
@@ -37,7 +38,27 @@ const Todos = ({todos, setTodos, setEdit, setEditInput}) => {
         window.scrollTo(0,0);
         const findEdit = todos.find(todo => todo.id === id);
         setEdit(findEdit);
-    }
+    };
+
+    const handleReset = () => {
+        swal({
+            title: "Are you sure?",
+            text: "Todos will be reseted!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    setTodos([]);
+                    swal("Poof! Your todos has been reseted", {
+                        icon: "success",
+                });
+                } else {
+                    swal("Your todos is safe!");
+                }
+            });
+    };
 
     return (
         <div className="todos">
@@ -72,6 +93,13 @@ const Todos = ({todos, setTodos, setEdit, setEditInput}) => {
 
                 {
                     !todos.length && <h4 className='todos__empty'>You don't have todo</h4>
+                }
+
+                {
+                    !!todos.length &&
+                    <div className="todo__reset">
+                        <Button onClick={handleReset} variant='danger'>RESET</Button>
+                    </div>
                 }
             </div>
         </div>
